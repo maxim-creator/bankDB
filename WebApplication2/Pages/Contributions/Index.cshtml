@@ -1,0 +1,79 @@
+﻿@page
+@model WebApplication2.Pages.Contributions.IndexModel
+
+@{
+    ViewData["Title"] = "Индекс";
+}
+
+<h1>Вклады</h1>
+
+<p>
+    <a asp-page="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].ContributionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].minTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].maxTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].InterestRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].AdditionalConditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].currerncy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contribution[0].depositor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Contribution)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContributionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.minTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maxTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterestRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalConditions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.currerncy.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.employee.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.depositor.ID)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Подробности</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

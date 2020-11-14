@@ -1,0 +1,43 @@
+﻿@page
+@model WebApplication2.Pages.Positions.DetailsModel
+
+@{
+    ViewData["Title"] = "Подробности";
+}
+
+<h1>Подробности</h1>
+
+<div>
+    <h4>Должность</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.duties)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.duties)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.requirements)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.requirements)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Position.ID">Изменить</a> |
+    <a asp-page="Index">Вернуться назад</a>
+</div>

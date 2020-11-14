@@ -1,0 +1,90 @@
+﻿@page
+@model WebApplication2.Pages.Depositors.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Вкладчики</h1>
+
+<p>
+    <a asp-page="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].pasportData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].conDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].retDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].amountOfTheRefund)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depositor[0].employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Depositor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pasportData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.retDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amountOfTheRefund)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Изменить</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Подробности</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

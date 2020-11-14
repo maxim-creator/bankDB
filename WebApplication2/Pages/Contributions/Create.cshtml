@@ -1,0 +1,66 @@
+﻿@page
+@model WebApplication2.Pages.Contributions.CreateModel
+
+@{
+    ViewData["Title"] = "Создание";
+}
+
+<h1>Создание</h1>
+
+<h4>Вклад</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Contribution.ContributionName" class="control-label"></label>
+                <input asp-for="Contribution.ContributionName" class="form-control" />
+                <span asp-validation-for="Contribution.ContributionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.minTime" class="control-label"></label>
+                <input asp-for="Contribution.minTime" class="form-control" />
+                <span asp-validation-for="Contribution.minTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.maxTime" class="control-label"></label>
+                <input asp-for="Contribution.maxTime" class="form-control" />
+                <span asp-validation-for="Contribution.maxTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.InterestRate" class="control-label"></label>
+                <input asp-for="Contribution.InterestRate" class="form-control" />
+                <span asp-validation-for="Contribution.InterestRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.AdditionalConditions" class="control-label"></label>
+                <input asp-for="Contribution.AdditionalConditions" class="form-control" />
+                <span asp-validation-for="Contribution.AdditionalConditions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.CurrencyID" class="control-label"></label>
+                <select asp-for="Contribution.CurrencyID" class ="form-control" asp-items="ViewBag.CurrencyID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.EmployeeID" class="control-label"></label>
+                <select asp-for="Contribution.EmployeeID" class ="form-control" asp-items="ViewBag.EmployeeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contribution.DepositorID" class="control-label"></label>
+                <select asp-for="Contribution.DepositorID" class ="form-control" asp-items="ViewBag.DepositorID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

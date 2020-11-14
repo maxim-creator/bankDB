@@ -1,0 +1,80 @@
+﻿@page
+@model WebApplication2.Pages.Depositors.EditModel
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<h1>Изменение</h1>
+
+<h4>Вкладчик</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Depositor.ID" />
+            <div class="form-group">
+                <label asp-for="Depositor.pasportData" class="control-label"></label>
+                <input asp-for="Depositor.pasportData" class="form-control" />
+                <span asp-validation-for="Depositor.pasportData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.conDate" class="control-label"></label>
+                <input asp-for="Depositor.conDate" class="form-control" />
+                <span asp-validation-for="Depositor.conDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.retDate" class="control-label"></label>
+                <input asp-for="Depositor.retDate" class="form-control" />
+                <span asp-validation-for="Depositor.retDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.amount" class="control-label"></label>
+                <input asp-for="Depositor.amount" class="form-control" />
+                <span asp-validation-for="Depositor.amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.amountOfTheRefund" class="control-label"></label>
+                <input asp-for="Depositor.amountOfTheRefund" class="form-control" />
+                <span asp-validation-for="Depositor.amountOfTheRefund" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Depositor.mark" /> @Html.DisplayNameFor(model => model.Depositor.mark)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.name" class="control-label"></label>
+                <input asp-for="Depositor.name" class="form-control" />
+                <span asp-validation-for="Depositor.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.adress" class="control-label"></label>
+                <input asp-for="Depositor.adress" class="form-control" />
+                <span asp-validation-for="Depositor.adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.phone" class="control-label"></label>
+                <input asp-for="Depositor.phone" class="form-control" />
+                <span asp-validation-for="Depositor.phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depositor.EmployeeID" class="control-label"></label>
+                <select asp-for="Depositor.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                <span asp-validation-for="Depositor.EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

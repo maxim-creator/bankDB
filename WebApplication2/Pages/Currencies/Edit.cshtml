@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication2.Pages.Currencies.EditModel
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<h1>Изменение</h1>
+
+<h4>Курс</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Currency.ID" />
+            <div class="form-group">
+                <label asp-for="Currency.name" class="control-label"></label>
+                <input asp-for="Currency.name" class="form-control" />
+                <span asp-validation-for="Currency.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Currency.exchangeRate" class="control-label"></label>
+                <input asp-for="Currency.exchangeRate" class="form-control" />
+                <span asp-validation-for="Currency.exchangeRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

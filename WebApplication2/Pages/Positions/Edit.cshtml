@@ -1,0 +1,50 @@
+﻿@page
+@model WebApplication2.Pages.Positions.EditModel
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<h1>Изменение</h1>
+
+<h4>Должность</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Position.ID" />
+            <div class="form-group">
+                <label asp-for="Position.name" class="control-label"></label>
+                <input asp-for="Position.name" class="form-control" />
+                <span asp-validation-for="Position.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position.salary" class="control-label"></label>
+                <input asp-for="Position.salary" class="form-control" />
+                <span asp-validation-for="Position.salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position.duties" class="control-label"></label>
+                <input asp-for="Position.duties" class="form-control" />
+                <span asp-validation-for="Position.duties" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position.requirements" class="control-label"></label>
+                <input asp-for="Position.requirements" class="form-control" />
+                <span asp-validation-for="Position.requirements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

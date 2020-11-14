@@ -1,0 +1,70 @@
+﻿@page
+@model WebApplication2.Pages.Employees.EditModel
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<h1>Изменение</h1>
+
+<h4>Работник</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Employee.ID" />
+            <div class="form-group">
+                <label asp-for="Employee.age" class="control-label"></label>
+                <input asp-for="Employee.age" class="form-control" />
+                <span asp-validation-for="Employee.age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.sex" class="control-label"></label>
+                <input asp-for="Employee.sex" class="form-control" />
+                <span asp-validation-for="Employee.sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.name" class="control-label"></label>
+                <input asp-for="Employee.name" class="form-control" />
+                <span asp-validation-for="Employee.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.adress" class="control-label"></label>
+                <input asp-for="Employee.adress" class="form-control" />
+                <span asp-validation-for="Employee.adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.phone" class="control-label"></label>
+                <input asp-for="Employee.phone" class="form-control" />
+                <span asp-validation-for="Employee.phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.pasportData" class="control-label"></label>
+                <input asp-for="Employee.pasportData" class="form-control" />
+                <span asp-validation-for="Employee.pasportData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.contributionID" class="control-label"></label>
+                <input asp-for="Employee.contributionID" class="form-control" />
+                <span asp-validation-for="Employee.contributionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.positionId" class="control-label"></label>
+                <select asp-for="Employee.positionId" class="form-control" asp-items="ViewBag.positionId"></select>
+                <span asp-validation-for="Employee.positionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
